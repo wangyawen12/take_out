@@ -9,4 +9,3 @@ sky:
 
   alioss:
     endpoint: oss-cn-hangzhou.aliyuncs.com
-    bucket-name: sky-take-out
