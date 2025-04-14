@@ -1,8 +1,10 @@
 package com.sky.dto;
 
 import lombok.Data;
+import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
+
 
 @Data
 public class SetmealPageQueryDTO implements Serializable {

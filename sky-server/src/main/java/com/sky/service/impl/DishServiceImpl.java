@@ -55,7 +55,7 @@ public class DishServiceImpl implements DishService {
                 dishFlavor.setDishId(dishId);
             });
             //向口味表插入n条数据
-            dishFlavorMapper.insertBatch(flavors);//后绪步骤实现
+            dishFlavorMapper.insertBatch(flavors);
         }
     }
 
@@ -69,7 +69,7 @@ public class DishServiceImpl implements DishService {
 
         PageHelper.startPage(dishPageQueryDTO.getPage(), dishPageQueryDTO.getPageSize());
 
-        Page<DishVO> page = dishMapper.pageQuery(dishPageQueryDTO);//后绪步骤实现
+        Page<DishVO> page = dishMapper.pageQuery(dishPageQueryDTO);
 
         return new PageResult(page.getTotal(), page.getResult());
     }
@@ -159,5 +159,18 @@ public class DishServiceImpl implements DishService {
         }
     }
 
+        /**
+         * 根据分类id查询菜品
+         * @param categoryId
+         * @return
+         */
+        public List<Dish> list (Long categoryId){
+            Dish dish = Dish.builder()
+                    .categoryId(categoryId)
+                    .status(StatusConstant.ENABLE)
+                    .build();
+            return dishMapper.list(dish);
 
-}
+
+        }
+    }
